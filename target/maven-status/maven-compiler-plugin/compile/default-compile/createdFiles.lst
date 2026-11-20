@@ -1,0 +1,15 @@
+com\libman\model\Manager8.class
+com\libman\dao\UserDAO8.class
+com\libman\model\LibraryCard8.class
+com\libman\model\BorrowingSlip8.class
+com\libman\dao\DAO8.class
+com\libman\model\Librarian8.class
+com\libman\model\Reader8.class
+com\libman\dao\DocumentDAO8.class
+com\libman\dao\LibraryCardDAO8.class
+com\libman\model\Document8.class
+com\libman\model\DocumentForLend8.class
+com\libman\dao\DocumentForLendDAO8.class
+com\libman\model\BorrowingSlipDetail8.class
+com\libman\model\User8.class
+com\libman\dao\BorrowingSlipDetailDAO8.class

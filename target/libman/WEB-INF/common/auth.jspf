@@ -1,0 +1,14 @@
+<%@ page import="com.libman.model.User8" %>
+<%
+    // Dùng: khai báo String requiredRole = "READER" | "LIBRARIAN" | "MANAGER" rồi include file này
+    request.setCharacterEncoding("UTF-8");
+    User8 sessionUser = (User8) session.getAttribute("user");
+    if (sessionUser == null) {
+        response.sendRedirect(request.getContextPath() + "/Login.jsp");
+        return;
+    }
+    if (!requiredRole.equals(sessionUser.getRole())) {
+        response.sendError(403, "Bạn không có quyền truy cập chức năng này");
+        return;
+    }
+%>

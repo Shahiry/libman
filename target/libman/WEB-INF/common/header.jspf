@@ -1,0 +1,23 @@
+<c:choose>
+  <c:when test="${sessionScope.user.role == 'READER'}"><c:set var="homeUrl" value="/reader/ReaderMainUI8.jsp"/></c:when>
+  <c:when test="${sessionScope.user.role == 'LIBRARIAN'}"><c:set var="homeUrl" value="/librarian/LibrarianMainUI8.jsp"/></c:when>
+  <c:when test="${sessionScope.user.role == 'MANAGER'}"><c:set var="homeUrl" value="/manager/ManagerMainUI8.jsp"/></c:when>
+  <c:otherwise><c:set var="homeUrl" value="/Login.jsp"/></c:otherwise>
+</c:choose>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><c:out value="${pageTitle}"/> - LibMan</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+</head>
+<body>
+<div class="topbar no-print">
+  <a href="<c:url value='${homeUrl}'/>">LibMan</a>
+  <c:if test="${not empty sessionScope.user}">
+    <span><c:out value="${sessionScope.user.fullName}"/> &nbsp;
+      <a class="btn secondary" href="<c:url value='/Logout.jsp'/>">Đăng xuất</a></span>
+  </c:if>
+</div>
+<div class="container">
