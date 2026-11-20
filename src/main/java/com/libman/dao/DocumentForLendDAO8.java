@@ -19,10 +19,10 @@ public class DocumentForLendDAO8 extends DAO8 {
     public DocumentForLendDAO8() { super(); }
     public DocumentForLendDAO8(Connection shared) { super(shared); }
 
-    /** Tìm bản tài liệu theo mã (= id). Null nếu không có hoặc mã không phải số. */
+    /** Tìm bản tài liệu theo mã (= id). Null nếu không có hoặc mã không hợp lệ. */
     public DocumentForLend8 searchByCode8(String keyword1) throws SQLException {
-        int id;
-        try { id = Integer.parseInt(keyword1.trim()); } catch (NumberFormatException e) { return null; }
+        Integer id = parseCodeToInt(keyword1);
+        if (id == null) return null;
         try (PreparedStatement ps = conn.prepareStatement(SEL + "WHERE f.id = ?")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {

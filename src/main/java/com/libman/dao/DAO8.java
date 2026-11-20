@@ -35,6 +35,27 @@ public class DAO8 implements AutoCloseable {
 
     public Connection getConn() { return conn; }
 
+    /**
+     * Chuyển mã người dùng nhập thành id số nguyên.
+     * Hỗ trợ cả số nguyên trực tiếp (vd: "1", "2") và mã có tiền tố chữ cái (vd: "MT001", "GT001", "TL1").
+     * Trả về null nếu không xác định được số hợp lệ.
+     */
+    public static Integer parseCodeToInt(String raw) {
+        if (raw == null) return null;
+        String s = raw.trim();
+        if (s.isEmpty()) return null;
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException ignored) { }
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("(\\d+)$").matcher(s);
+        if (m.find()) {
+            try {
+                return Integer.parseInt(m.group(1));
+            } catch (NumberFormatException ignored) { }
+        }
+        return null;
+    }
+
     @Override
     public void close() {
         if (ownsConnection && conn != null) {

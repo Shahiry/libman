@@ -8,10 +8,10 @@ import java.sql.SQLException;
 
 public class LibraryCardDAO8 extends DAO8 {
 
-    /** Tìm thẻ bạn đọc theo mã thẻ (= id). Null nếu không có hoặc mã không phải số. */
+    /** Tìm thẻ bạn đọc theo mã thẻ (= id). Null nếu không có hoặc mã không hợp lệ. */
     public LibraryCard8 searchByCode(String keyword0) throws SQLException {
-        int id;
-        try { id = Integer.parseInt(keyword0.trim()); } catch (NumberFormatException e) { return null; }
+        Integer id = parseCodeToInt(keyword0);
+        if (id == null) return null;
         String sql = "SELECT c.id, c.cardStatus, c.dateOfIssue, c.expireDate, "
                 + "u.id AS uid, u.fullName, u.avatar, r.studentCode, r.classCode "
                 + "FROM tblLibraryCard c JOIN tblReader r ON c.tblReadertblUserid = r.tblUserid "

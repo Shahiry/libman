@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" %>
 <c:choose>
   <c:when test="${sessionScope.user.role == 'READER'}"><c:set var="homeUrl" value="/reader/ReaderMainUI8.jsp"/></c:when>
   <c:when test="${sessionScope.user.role == 'LIBRARIAN'}"><c:set var="homeUrl" value="/librarian/LibrarianMainUI8.jsp"/></c:when>

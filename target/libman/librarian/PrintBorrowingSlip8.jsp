@@ -50,7 +50,7 @@
                     session.removeAttribute("lendCard");
                     session.removeAttribute("lendOutstanding");
                     session.removeAttribute("lendList");
-                    response.sendRedirect("PrintBrorrowingSlip8.jsp?saved=1");
+                    response.sendRedirect("PrintBorrowingSlip8.jsp?saved=1");
                     return;
                 } catch (SQLException e) {
                     c.rollback();
@@ -101,7 +101,7 @@
     </c:when>
     <c:otherwise>
       <a class="btn secondary" href="LendingDocument8.jsp">Quay lại</a>
-      <form method="post" action="PrintBrorrowingSlip8.jsp" style="margin:0">
+      <form method="post" action="PrintBorrowingSlip8.jsp" style="margin:0">
         <input type="hidden" name="action" value="confirm">
         <button type="submit">In phiếu</button>
       </form>

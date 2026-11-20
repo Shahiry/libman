@@ -121,7 +121,7 @@
 
 <div class="actions">
   <a class="btn secondary" href="LendingDocument8.jsp?action=cancel">Quay lại</a>
-  <form method="get" action="PrintBrorrowingSlip8.jsp" style="margin:0">
+  <form method="get" action="PrintBorrowingSlip8.jsp" style="margin:0">
     <button type="submit" <c:if test="${empty sessionScope.lendList}">disabled</c:if>>In phiếu mượn</button>
   </form>
 </div>
